@@ -101,7 +101,95 @@ hr.dashed-line {
     font-size: 18px;
     padding: 10px;
     min-height: 335px;
+    /* 
+    display: flex;
+    justify-content: center; */
+
+
 }
+
+/*
+.list-item {
+    background-color: rgba(128, 128, 128, 0.49);
+    height: 70px;
+    color: black;
+    padding: 20px;
+    width: 100vw;
+    display: flex;
+    justify-content: space-between;
+align-items: center;
+}
+
+.list-item p {
+    margin-right: 180px;
+}
+
+.check-box {
+    position: relative;
+    display: inline-block;
+}
+
+.check-box input[type="checkbox"] {
+    display: none;
+    
+}
+
+.check-box label {
+    position: relative;
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    border: 2px solid #000;
+    border-radius: 4px;
+    cursor: pointer;
+    bottom: 6px;
+    right: 89px;
+}
+
+.check-box label::after {
+    content: '\2714';
+   
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    font-size: 20px;
+    color: transparent;
+    transition: all 0.3s ease;
+}
+
+.check-box input[type="checkbox"]:checked+label::after {
+    color: red;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.check-box label:hover::after {
+    transform: translate(-50%, -50%) scale(1.2);
+}
+
+.check-box input[type="checkbox"]:focus+label {
+    
+    outline: 2px solid blue;
+}
+
+.deletBtn {
+    position: relative;
+    top: 20px;
+    right: 43px;
+    padding: 5px;
+    color: in;
+    border: 2px solid black;
+    border-radius: 7px;
+    background: transparent;
+}
+
+.deletBtn:hover {
+    cursor: pointer;
+    background-color: rgba(231, 48, 48, 0.823);
+
+}
+
+*/
 
 #inp {
     width: 22rem;
