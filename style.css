@@ -89,6 +89,7 @@ main {
 .count-list .count {
     text-align: center;
     margin-right: 5px;
+    color: #ed4564;
 }
 
 hr.dashed-line {
@@ -101,95 +102,76 @@ hr.dashed-line {
     font-size: 18px;
     padding: 10px;
     min-height: 335px;
-    /* 
-    display: flex;
-    justify-content: center; */
+    max-height: 335px;
+    overflow-y: auto;
 
 
 }
 
-/*
-.list-item {
-    background-color: rgba(128, 128, 128, 0.49);
-    height: 70px;
-    color: black;
-    padding: 20px;
-    width: 100vw;
-    display: flex;
-    justify-content: space-between;
-align-items: center;
-}
-
-.list-item p {
-    margin-right: 180px;
-}
-
-.check-box {
-    position: relative;
-    display: inline-block;
-}
-
-.check-box input[type="checkbox"] {
-    display: none;
-    
-}
-
-.check-box label {
-    position: relative;
-    display: inline-block;
-    width: 24px;
-    height: 24px;
-    border: 2px solid #000;
-    border-radius: 4px;
-    cursor: pointer;
-    bottom: 6px;
-    right: 89px;
-}
-
-.check-box label::after {
-    content: '\2714';
-   
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(0);
+.list {
+    margin-bottom: 10px;
+    padding: 12px;
+    display: grid;
+    grid-template-columns: 2fr 8fr 2fr;
     font-size: 20px;
-    color: transparent;
-    transition: all 0.3s ease;
+    background-color: rgba(179, 177, 177, 0.429);
+    border-radius: 5px;
+
 }
 
-.check-box input[type="checkbox"]:checked+label::after {
-    color: red;
-    transform: translate(-50%, -50%) scale(1);
+.list:hover {
+    background-color: rgba(108, 101, 101, 0.429);
+
+
 }
 
-.check-box label:hover::after {
-    transform: translate(-50%, -50%) scale(1.2);
+.list input[type="checkbox"] {
+    height: 30px;
+    accent-color: rgb(95, 232, 111);
 }
 
-.check-box input[type="checkbox"]:focus+label {
-    
-    outline: 2px solid blue;
-}
-
-.deletBtn {
-    position: relative;
-    top: 20px;
-    right: 43px;
-    padding: 5px;
-    color: in;
-    border: 2px solid black;
-    border-radius: 7px;
-    background: transparent;
-}
-
-.deletBtn:hover {
+.list input[type="checkbox"]:hover {
     cursor: pointer;
-    background-color: rgba(231, 48, 48, 0.823);
+}
+
+.list button {
+    width: 30px;
+    height: 30px;
+    border-radius: 5px;
+    outline: none;
+    border: none;
 
 }
 
-*/
+
+
+.list button:hover {
+    background-color: rgb(250, 60, 60);
+    color: white;
+    cursor: pointer;
+
+}
+
+.list p {
+    color: #1E2122;
+    font-weight: 400;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    margin-right: 35px;
+}
+
+#error {
+    /* visibility: hidden; */
+    display: none;
+    color: red;
+    background-color: rgba(156, 156, 156, 0.549);
+    border-radius: 6px;
+    height: 50px;
+    text-align: center;
+    margin-bottom: 20px;
+    padding: 12px;
+}
 
 #inp {
     width: 22rem;
@@ -204,6 +186,7 @@ align-items: center;
     font-family: "Sriracha", cursive;
     text-align: justify;
 }
+
 
 .input-form {
     display: flex;
@@ -227,4 +210,9 @@ align-items: center;
 #btn:hover {
     cursor: pointer;
     opacity: 0.9;
+}
+
+.completed {
+    text-decoration: line-through;
+    color: #414141;
 }

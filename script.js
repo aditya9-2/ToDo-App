@@ -20,6 +20,13 @@ inputField.addEventListener('input', function () {
 });
 
 
+inputField.addEventListener('keypress', function (event) {
+    if (event.key === 'Enter') {
+        event.preventDefault();
+        addTask();
+    }
+});
+
 let taskCount = 0;
 
 const displayCount = (taskCount) => {
@@ -58,7 +65,7 @@ const addTask = () => {
 
             deleteBtn.parentNode.remove();
 
-            taskCount -= 1;
+            updateTaskCount(-1);
             displayCount(taskCount);
         };
 
@@ -67,23 +74,31 @@ const addTask = () => {
     const taskCheck = document.querySelectorAll('.list');
 
     taskCheck.forEach((checkBox) => {
+
+
+
         checkBox.onchange = () => {
 
-            checkBox.nextElementSibling.classList.toggle("completed");
-            if (checkBox.checked) {
-                taskCount--;
-            }
-            else {
-                taskCount++;
-            }
+            const taskDescription = checkBox.querySelector('p');
+            taskDescription.classList.toggle("completed");
+
             displayCount(taskCount);
         };
     });
-    taskCount += 1;
+
+
+
+    updateTaskCount(1);
     displayCount(taskCount);
     inputField.value = '';
 
 };
+
+const updateTaskCount = (change) => {
+    taskCount += change;
+    displayCount(taskCount);
+};
+
 
 const showError = (message) => {
     error.textContent = message;
