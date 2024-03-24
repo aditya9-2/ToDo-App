@@ -1,14 +1,100 @@
 const inputField = document.querySelector('#inp');
+const addButton = document.querySelector('#btn');
+const countvalue = document.querySelector('.count');
+const error = document.querySelector('#error');
+const taskContainer = document.querySelector('.added-lists');
+
 
 inputField.addEventListener('input', function () {
 
     if (this.value !== '') {
 
-        this.style.color = '#000'; // Change font color to black
-        this.style.fontWeight = '400'; // Change font size to 20px
+        this.style.color = '#000';
+        this.style.fontWeight = '400';
 
-    } else {
-        this.style.color = '#a4a1a1'; // Revert font color to default
-        this.style.fontSize = '16px'; // Revert font size to default
+    }
+    else {
+        this.style.color = '#a4a1a1';
+        this.style.fontSize = '16px';
     }
 });
+
+
+let taskCount = 0;
+
+const displayCount = (taskCount) => {
+
+    countvalue.innerText = taskCount;
+
+};
+
+const addTask = () => {
+
+    const taskName = inputField.value.trim();
+    error.style.display = 'hidden';
+
+    if (!taskName) {
+        setTimeout(() => {
+            error.style.display = 'block';
+        }, 350);
+
+        return;
+    }
+
+
+    const task = `
+    
+        <div class="list">
+            <input type="checkbox" id="chk">
+            <p> ${taskName}</p>
+            <button id="deleteBtn"> <i class='bx bxs-trash'></i></button>
+        </div>
+    
+    `
+
+    taskContainer.insertAdjacentHTML('beforeend', task);
+
+
+    const deleteButton = document.querySelectorAll('#deleteBtn');
+
+    deleteButton.forEach((deleteBtn) => {
+
+        deleteBtn.onclick = () => {
+
+            deleteBtn.parentNode.remove();
+
+            taskCount -= 1;
+            displayCount(taskCount);
+        };
+
+    });
+
+    const taskCheck = document.querySelectorAll('.list');
+
+    taskCheck.forEach((checkBox) => {
+        checkBox.onchange = () => {
+
+            checkBox.nextElementSibling.classList.toggle("completed");
+            if (checkBox.checked) {
+                taskCount--;
+            }
+            else {
+                taskCount++;
+            }
+            displayCount(taskCount);
+        };
+    });
+    taskCount += 1;
+    displayCount(taskCount);
+    inputField.value = '';
+
+};
+
+addButton.addEventListener('click', addTask);
+
+window.onload = () => {
+    taskCount = 0;
+    displayCount(taskCount);
+    inputField.value = '';
+
+};
