@@ -11,7 +11,7 @@
 
 body {
 
-    background-color: aliceblue;
+    background-color: rgb(224, 227, 231);
     font-family: "poppins", sans-serif;
     /* height: 100vh;
     width: 100vw; */
@@ -196,12 +196,12 @@ hr.dashed-line {
 #btn {
     margin: auto;
     padding: 14px;
-    background-color: #EE889A;
+    background-color: #f64a68;
     border: none;
-    color: #1E2122;
+    color: #fff;
     border-radius: 48px;
     font-family: "Indie Flower", cursive;
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 400;
     width: 116px;
 
