@@ -31,16 +31,11 @@ const displayCount = (taskCount) => {
 const addTask = () => {
 
     const taskName = inputField.value.trim();
-    error.style.display = 'hidden';
 
     if (!taskName) {
-        setTimeout(() => {
-            error.style.display = 'block';
-        }, 350);
-
+        showError('List cannot be Empty');
         return;
     }
-
 
     const task = `
     
@@ -88,6 +83,14 @@ const addTask = () => {
     displayCount(taskCount);
     inputField.value = '';
 
+};
+
+const showError = (message) => {
+    error.textContent = message;
+    error.style.display = 'block';
+    setTimeout(() => {
+        error.style.display = 'none';
+    }, 1000);
 };
 
 addButton.addEventListener('click', addTask);
