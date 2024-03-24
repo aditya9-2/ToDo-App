@@ -3,6 +3,7 @@ const addButton = document.querySelector('#btn');
 const countvalue = document.querySelector('.count');
 const error = document.querySelector('#error');
 const taskContainer = document.querySelector('.added-lists');
+const emptyList = document.querySelector('.empty-list');
 
 
 inputField.addEventListener('input', function () {
@@ -32,6 +33,13 @@ let taskCount = 0;
 const displayCount = (taskCount) => {
 
     countvalue.innerText = taskCount;
+
+    if (taskCount === 0) {
+        emptyList.style.display = 'block';
+    }
+    else {
+        emptyList.style.display = 'none';
+    }
 
 };
 
